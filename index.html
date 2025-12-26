@@ -3,42 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AMIRI — השבת נכסים וניהול נכסים. שירות מקצועי, דיסקרטי ומסודר." />
+  <meta name="description" content="AMIRI — השבת נכסים וניהול נכסים. שירות דיסקרטי, מסודר ומקצועי." />
   <title>AMIRI | השבת נכסים וניהול נכסים</title>
 
   <style>
     :root{
-      --bg1:#070b18;
-      --bg2:#0b1430;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.12);
-      --border: rgba(255,255,255,.14);
-      --text:#f5f7ff;
-      --muted: rgba(245,247,255,.75);
-      --accent:#52c7ff;
-      --accent2:#7c5cff;
-      --good:#26d07c;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --max: 1100px;
+      --bg:#070707;
+      --bg2:#0b0b0b;
+      --sand:#d6b77a;
+      --sand2:#b8924b;
+      --text:#f5f1e8;
+      --muted: rgba(245,241,232,.72);
+      --line: rgba(214,183,122,.22);
+      --panel: rgba(255,255,255,.04);
+      --panel2: rgba(255,255,255,.06);
+      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --r: 18px;
+      --max: 1120px;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(82,199,255,.22), transparent 55%),
-        radial-gradient(900px 600px at 85% 20%, rgba(124,92,255,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height:100vh;
+        radial-gradient(900px 520px at 18% 12%, rgba(214,183,122,.10), transparent 58%),
+        radial-gradient(800px 520px at 82% 20%, rgba(214,183,122,.06), transparent 58%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans Hebrew", "Heebo", sans-serif;
       overflow-x:hidden;
     }
 
     a{ color:inherit; text-decoration:none; }
-    .container{ max-width:var(--max); margin:0 auto; padding:0 16px; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 0 16px; }
+
+    /* Subtle grain */
+    .grain{
+      position: fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.08;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+    }
 
     /* NAV */
     .nav{
@@ -46,8 +54,8 @@
       top:0;
       z-index:50;
       backdrop-filter: blur(14px);
-      background: rgba(10,14,30,.55);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(7,7,7,.62);
+      border-bottom: 1px solid rgba(214,183,122,.14);
     }
     .nav-inner{
       display:flex;
@@ -56,39 +64,68 @@
       gap:12px;
       padding: 12px 0;
     }
+
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
-      font-weight: 900;
-      letter-spacing:.5px;
+      letter-spacing:.7px;
     }
-    .logo{
-      width: 44px; height: 44px;
+    .mark{
+      width:44px;height:44px;
       border-radius: 16px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 30px rgba(82,199,255,.18);
-      display:flex; align-items:center; justify-content:center;
+      border:1px solid rgba(214,183,122,.35);
+      background: linear-gradient(135deg, rgba(214,183,122,.18), rgba(255,255,255,.02));
+      box-shadow: 0 16px 60px rgba(0,0,0,.45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
       font-weight: 950;
+      color: var(--sand);
     }
     .brand .name{
-      display:flex; flex-direction:column; gap:2px;
-      line-height:1.1;
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
     }
-    .brand .name b{ font-size: 16px; }
-    .brand .name span{ font-size: 12px; color: var(--muted); }
+    .brand .name b{
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      letter-spacing: 1.2px;
+    }
+    .brand .name span{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .2px;
+    }
 
-    .nav-links{ display:flex; gap:10px; flex-wrap:wrap; }
-    .chip{
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
+    .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .link{
       font-weight: 800;
       font-size: 13px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      color: rgba(245,241,232,.88);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(214,183,122,.10);
+      background: rgba(255,255,255,.03);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
     }
-    .chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16); }
+    .link:hover{
+      transform: translateY(-1px);
+      border-color: rgba(214,183,122,.25);
+      background: rgba(255,255,255,.05);
+    }
+
+    .cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
 
     /* Buttons */
     .btn{
@@ -98,46 +135,59 @@
       gap:10px;
       padding: 12px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(214,183,122,.22);
+      background: rgba(255,255,255,.03);
       color: var(--text);
       font-weight: 900;
-      box-shadow: 0 10px 35px rgba(0,0,0,.22);
-      transition: transform .12s ease, filter .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+      transition: transform .12s ease, filter .12s ease, border-color .12s ease, background .12s ease;
     }
-    .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.20); }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); border-color: rgba(214,183,122,.35); background: rgba(255,255,255,.05); }
     .btn.primary{
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-color: rgba(255,255,255,.18);
+      background: linear-gradient(135deg, var(--sand), var(--sand2));
+      color:#080808;
+      border-color: rgba(214,183,122,.55);
     }
     .btn.ghost{
       background: transparent;
-      border-color: rgba(255,255,255,.16);
-      box-shadow:none;
+      border-color: rgba(214,183,122,.18);
     }
 
     /* HERO */
-    .hero{ padding: 34px 0 12px; }
+    .hero{ padding: 34px 0 16px; }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
       align-items: stretch;
       margin-top: 16px;
     }
+
     .panel{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
+      border-radius: var(--r);
+      border: 1px solid rgba(214,183,122,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
+      padding: 22px;
+      position: relative;
+      overflow:hidden;
     }
+    .panel:before{
+      content:"";
+      position:absolute;
+      inset:-35% -45%;
+      background: radial-gradient(circle, rgba(214,183,122,.12), transparent 55%);
+      transform: rotate(12deg);
+      opacity:.65;
+    }
+    .panel > *{ position: relative; }
+
     h1{
-      margin: 0 0 10px;
-      font-size: clamp(32px, 5vw, 54px);
-      line-height: 1.05;
-      letter-spacing: -.2px;
+      margin:0 0 10px;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 5.2vw, 56px);
+      line-height: 1.02;
+      letter-spacing: .6px;
     }
     .lead{
       margin:0 0 14px;
@@ -145,41 +195,69 @@
       line-height: 1.95;
       font-size: clamp(15px, 2.1vw, 17px);
     }
-    .badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
-    .badge{
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.07);
-      font-weight: 900;
-      font-size: 12.5px;
-      color: rgba(245,247,255,.92);
-    }
-    .hero-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px; }
 
-    .stats{
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(214,183,122,.28), transparent);
+      margin: 14px 0;
+    }
+
+    .kpis{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 10px;
-      margin-top: 14px;
+      gap:10px;
+      margin-top: 12px;
     }
-    .stat{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
+    .kpi{
       border-radius: 16px;
+      border: 1px solid rgba(214,183,122,.14);
+      background: rgba(255,255,255,.03);
       padding: 14px;
     }
-    .stat .n{ font-size: 20px; font-weight: 950; }
-    .stat .t{ margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .kpi b{ display:block; font-size: 14px; letter-spacing:.3px; }
+    .kpi span{ display:block; margin-top:6px; color: var(--muted); font-size: 12.8px; line-height:1.6; }
+
+    .mini{
+      display:grid;
+      gap:10px;
+    }
+    .mini-card{
+      border-radius: 16px;
+      border: 1px solid rgba(214,183,122,.14);
+      background: rgba(255,255,255,.03);
+      padding: 14px;
+    }
+    .mini-card h3{
+      margin:0 0 6px;
+      font-size: 15.5px;
+    }
+    .mini-card p{
+      margin:0;
+      color: var(--muted);
+      line-height:1.85;
+      font-size: 14px;
+    }
 
     /* Sections */
     .section{ padding: 18px 0; }
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+    .head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:10px;
       margin: 6px 0 12px;
     }
-    .section-head h2{ margin:0; font-size: 22px; }
-    .section-head p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .head h2{
+      margin:0;
+      font-size: 20.5px;
+      letter-spacing:.3px;
+    }
+    .head p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.6;
+    }
 
     .grid{
       display:grid;
@@ -187,62 +265,66 @@
       gap: 12px;
     }
     .card{
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
+      border-radius: var(--r);
+      border: 1px solid rgba(214,183,122,.16);
+      background: rgba(255,255,255,.03);
       padding: 16px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.22);
-      position: relative;
-      overflow:hidden;
     }
-    .card:before{
-      content:"";
-      position:absolute; inset:-40% -50%;
-      background: radial-gradient(circle, rgba(82,199,255,.18), transparent 55%);
-      transform: rotate(10deg);
-      opacity:.55;
-    }
-    .card > *{ position: relative; }
-    .pill{
+    .tag{
       display:inline-block;
-      margin-bottom: 10px;
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(214,183,122,.22);
+      background: rgba(214,183,122,.08);
+      color: rgba(245,241,232,.92);
       font-weight: 950;
       font-size: 12px;
-      color: rgba(245,247,255,.92);
+      margin-bottom: 10px;
     }
-    .card h3{ margin: 0 0 8px; font-size: 16.5px; }
-    .card p{ margin:0; color: var(--muted); line-height: 1.85; font-size: 14.5px; }
+    .card h3{ margin:0 0 8px; font-size: 16px; }
+    .card p{ margin:0; color: var(--muted); line-height:1.85; font-size: 14.5px; }
 
     /* Steps */
-    .timeline{ display:grid; gap: 10px; }
+    .steps{ display:grid; gap: 10px; }
     .step{
-      display:flex; gap: 12px; align-items:flex-start;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      border-radius: var(--r);
+      border: 1px solid rgba(214,183,122,.16);
+      background: rgba(255,255,255,.03);
       padding: 14px;
     }
-    .dot{
+    .num{
       width: 30px; height: 30px;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      flex: 0 0 auto;
+      border: 1px solid rgba(214,183,122,.35);
+      color: var(--sand);
       display:flex; align-items:center; justify-content:center;
       font-weight: 950;
-      box-shadow: 0 12px 26px rgba(124,92,255,.20);
+      flex:0 0 auto;
     }
     .step h4{ margin:0 0 4px; }
-    .step p{ margin:0; color: var(--muted); line-height: 1.8; font-size: 14.5px; }
+    .step p{ margin:0; color: var(--muted); line-height:1.85; font-size: 14.5px; }
+
+    /* Testimonials */
+    .quote{
+      font-size: 14.5px;
+      line-height: 1.9;
+      color: rgba(245,241,232,.92);
+    }
+    .who{
+      margin-top: 10px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+    }
 
     /* FAQ */
     details{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
+      border-radius: var(--r);
+      border: 1px solid rgba(214,183,122,.16);
+      background: rgba(255,255,255,.03);
       padding: 12px 14px;
     }
     details + details{ margin-top: 10px; }
@@ -256,44 +338,45 @@
       gap:10px;
     }
     summary::-webkit-details-marker{ display:none; }
-    .ans{ margin-top: 10px; color: var(--muted); line-height: 1.9; font-size: 14.5px; }
+    .ans{
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14.5px;
+    }
     .chev{
       width: 34px; height: 34px;
       border-radius: 14px;
       display:flex; align-items:center; justify-content:center;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(214,183,122,.16);
+      background: rgba(255,255,255,.03);
       transition: transform .15s ease;
+      color: rgba(245,241,232,.85);
     }
     details[open] .chev{ transform: rotate(180deg); }
 
     /* Contact */
-    .contact-grid{
+    .contact{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-    }
-    form{
-      display:grid;
-      gap: 10px;
     }
     input, textarea{
       width:100%;
       padding: 12px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(214,183,122,.16);
+      background: rgba(255,255,255,.03);
       color: var(--text);
       outline:none;
       font-family: inherit;
     }
-    textarea{ min-height: 120px; resize: vertical; }
-    input::placeholder, textarea::placeholder{ color: rgba(245,247,255,.55); }
+    textarea{ min-height: 130px; resize: vertical; }
+    input::placeholder, textarea::placeholder{ color: rgba(245,241,232,.55); }
 
-    /* Footer */
     footer{
       padding: 26px 0 40px;
-      color: rgba(245,247,255,.62);
+      color: rgba(245,241,232,.60);
       text-align:center;
       font-size: 13px;
       line-height: 1.8;
@@ -303,42 +386,45 @@
     @media (max-width: 940px){
       .hero-grid{ grid-template-columns: 1fr; }
       .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .stats{ grid-template-columns: 1fr; }
-      .contact-grid{ grid-template-columns: 1fr; }
-      .nav-links{ display:none; }
+      .kpis{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .links{ display:none; }
     }
     @media (max-width: 600px){
       .panel{ padding: 16px; }
       .grid{ grid-template-columns: 1fr; }
       .btn{ width: 100%; }
+      .cta{ display:none; }
     }
   </style>
 </head>
 
 <body>
+  <div class="grain" aria-hidden="true"></div>
+
   <!-- NAV -->
   <div class="nav">
     <div class="container">
       <div class="nav-inner">
         <div class="brand" aria-label="AMIRI">
-          <div class="logo" aria-hidden="true">A</div>
+          <div class="mark" aria-hidden="true">A</div>
           <div class="name">
             <b>AMIRI</b>
             <span>השבת נכסים • ניהול נכסים • שירות דיסקרטי</span>
           </div>
         </div>
 
-        <div class="nav-links" aria-label="ניווט">
-          <a class="chip" href="#services">שירותים</a>
-          <a class="chip" href="#why">למה AMIRI</a>
-          <a class="chip" href="#process">איך זה עובד</a>
-          <a class="chip" href="#faq">שאלות</a>
-          <a class="chip" href="#contact">יצירת קשר</a>
+        <div class="links" aria-label="ניווט">
+          <a class="link" href="#services">שירותים</a>
+          <a class="link" href="#why">למה AMIRI</a>
+          <a class="link" href="#process">תהליך</a>
+          <a class="link" href="#faq">שאלות</a>
+          <a class="link" href="#contact">יצירת קשר</a>
         </div>
 
-        <div style="display:flex; gap:10px;">
-          <a class="btn primary" href="#contact">בדיקת זכאות / שיחה</a>
-          <a class="btn ghost" href="#services">מה אנחנו עושים</a>
+        <div class="cta">
+          <a class="btn ghost" href="#services">לראות שירותים</a>
+          <a class="btn primary" href="#contact">בדיקה ראשונית</a>
         </div>
       </div>
     </div>
@@ -349,54 +435,39 @@
     <div class="container">
       <div class="hero-grid">
         <div class="panel">
-          <h1>השבת נכסים וניהול נכסים — בצורה מסודרת, דיסקרטית ומקצועית.</h1>
+          <h1>שירות יוקרתי, שקט ומסודר — לנכסים שלך.</h1>
           <p class="lead">
-            AMIRI עוזרת לאנשים ולמשפחות לבצע <b>איתור/השבת נכסים</b> (לפי הצורך) וגם <b>ניהול נכסים</b> בצורה יעילה:
-            סדר בניירת, תהליך ברור, וליווי לאורך הדרך.
+            ב־AMIRI אנחנו מטפלים בתהליכי <b>השבת נכסים</b> ובשירותי <b>ניהול נכסים</b> בגישה שמבוססת על
+            סדר, שקיפות, דיסקרטיות וסטנדרט גבוה.
           </p>
 
-          <div class="badges">
-            <span class="badge">📌 תהליך שלב-אחר-שלב</span>
-            <span class="badge">🔒 דיסקרטיות מלאה</span>
-            <span class="badge">🧾 סדר במסמכים</span>
-            <span class="badge">✅ עדכונים שוטפים</span>
-          </div>
+          <div class="divider"></div>
 
-          <div class="hero-actions">
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn primary" href="#contact">אני רוצה בדיקה ראשונית</a>
             <a class="btn" href="#process">איך זה עובד</a>
           </div>
 
-          <div class="stats" aria-label="סטטיסטיקות">
-            <div class="stat">
-              <div class="n">שקיפות</div>
-              <div class="t">אתם יודעים בכל שלב מה קורה ומה הצעד הבא.</div>
-            </div>
-            <div class="stat">
-              <div class="n">סדר</div>
-              <div class="t">רשימת מסמכים ותהליך ברור שמונע בלגן.</div>
-            </div>
-            <div class="stat">
-              <div class="n">ליווי</div>
-              <div class="t">מענה אנושי, עדכונים ומעקב קבוע.</div>
-            </div>
+          <div class="kpis" aria-label="ערכים מרכזיים">
+            <div class="kpi"><b>דיסקרטיות</b><span>טיפול רגיש ומכבד, מינימום חשיפה, מקסימום אחריות.</span></div>
+            <div class="kpi"><b>סדר ותיעוד</b><span>תהליך מסודר + ריכוז מסמכים ותמונה ברורה.</span></div>
+            <div class="kpi"><b>שקיפות</b><span>אתם יודעים בכל שלב מה נעשה ומה הצעד הבא.</span></div>
           </div>
         </div>
 
         <div class="panel">
-          <div class="pill">למי זה מתאים?</div>
-          <div class="grid" style="grid-template-columns: 1fr; gap:10px;">
-            <div class="card">
-              <h3>✅ מי שרוצה סדר בנכסים</h3>
-              <p>ניהול נכסים בצורה מסודרת: מעקב, תיעוד, ותפעול שוטף.</p>
+          <div class="mini">
+            <div class="mini-card">
+              <h3>למי זה מתאים?</h3>
+              <p>למי שרוצה סדר בנכסים, מעקב מקצועי, ותהליך שמביא שקט נפשי.</p>
             </div>
-            <div class="card">
-              <h3>✅ מי שחושב שיש נכסים “אבודים”</h3>
-              <p>בדיקה ראשונית והכוונה להמשך תהליך לפי הצורך.</p>
+            <div class="mini-card">
+              <h3>מה מקבלים?</h3>
+              <p>מיפוי מצב, תכנון שלבים, ביצוע ומעקב — הכל מתועד וברור.</p>
             </div>
-            <div class="card">
-              <h3>✅ מי שרוצה שקט נפשי</h3>
-              <p>כשיש תהליך ברור — מורידים לחץ ומונעים טעויות.</p>
+            <div class="mini-card">
+              <h3>מה הסטנדרט?</h3>
+              <p>תקשורת נקייה, מסגרת עבודה ברורה, ושירות “פרימיום”.</p>
             </div>
           </div>
         </div>
@@ -407,30 +478,30 @@
   <!-- SERVICES -->
   <div class="section" id="services">
     <div class="container">
-      <div class="section-head">
+      <div class="head">
         <div>
           <h2>השירותים שלנו</h2>
-          <p>בחרו את השירות המתאים — או עשו בדיקה ונבנה לכם מסלול.</p>
+          <p>לפי הצורך — בדיקה, השבה, או ניהול שוטף.</p>
         </div>
       </div>
 
       <div class="grid">
         <div class="card">
-          <div class="pill">השבת נכסים</div>
-          <h3>בדיקה ראשונית + מיפוי מצב</h3>
-          <p>איסוף נתונים, הבנת התמונה, ותכנון שלבים מסודר להמשך טיפול.</p>
+          <span class="tag">השבת נכסים</span>
+          <h3>בדיקה ראשונית + מיפוי</h3>
+          <p>איסוף נתונים, הבנת מצב קיים, ותכנון שלבים מסודר להמשך טיפול.</p>
         </div>
 
         <div class="card">
-          <div class="pill">השבת נכסים</div>
-          <h3>סידור מסמכים והכנה לתהליך</h3>
-          <p>ארגון ניירת/מסמכים, יצירת סדר, והכנה לביצוע פניות במידת הצורך.</p>
+          <span class="tag">השבת נכסים</span>
+          <h3>סידור מסמכים והכנת תיק</h3>
+          <p>ארגון מסמכים, יצירת סדר, והכנה לפעולות המשך לפי הצורך.</p>
         </div>
 
         <div class="card">
-          <div class="pill">ניהול נכסים</div>
-          <h3>ניהול שוטף ומעקב</h3>
-          <p>ניהול פעולות שוטפות, מעקב סטטוסים, תיעוד ועדכונים מסודרים.</p>
+          <span class="tag">ניהול נכסים</span>
+          <h3>ניהול ומעקב שוטף</h3>
+          <p>מעקב סטטוסים, תיעוד, ביצוע משימות שוטפות ועדכונים מסודרים.</p>
         </div>
       </div>
     </div>
@@ -439,28 +510,28 @@
   <!-- WHY -->
   <div class="section" id="why">
     <div class="container">
-      <div class="section-head">
+      <div class="head">
         <div>
-          <h2>למה דווקא AMIRI</h2>
-          <p>אנחנו עובדים בשיטה: סדר, דיסקרטיות ושקיפות.</p>
+          <h2>למה AMIRI</h2>
+          <p>יוקרה אמיתית = שקט, סדר וסטנדרט שירות.</p>
         </div>
       </div>
 
       <div class="grid">
         <div class="card">
-          <div class="pill">שיטה</div>
-          <h3>תהליך מסודר ולא “על הדרך”</h3>
-          <p>כל שלב ברור: מה צריך, מה עושים, ומה יעד הזמן.</p>
+          <span class="tag">תהליך</span>
+          <h3>שלב-אחר-שלב</h3>
+          <p>בלי בלגן: אתם מקבלים מסגרת עבודה ברורה, מהתחלה ועד סיכום.</p>
         </div>
         <div class="card">
-          <div class="pill">תקשורת</div>
-          <h3>עדכונים שוטפים</h3>
-          <p>לא נעלמים. אתם מקבלים סטטוס והתקדמות בצורה ברורה.</p>
+          <span class="tag">תקשורת</span>
+          <h3>עדכונים ברורים</h3>
+          <p>שקיפות לאורך הדרך: מה בוצע, מה חסר, ומה השלב הבא.</p>
         </div>
         <div class="card">
-          <div class="pill">דיסקרטיות</div>
+          <span class="tag">דיסקרטיות</span>
           <h3>פרטיות לפני הכול</h3>
-          <p>טיפול רגיש ומכבד, עם מינימום חשיפה ומקסימום אחריות.</p>
+          <p>טיפול רגיש ומכבד, תוך שמירה על פרטיות וביטחון מידע.</p>
         </div>
       </div>
     </div>
@@ -469,41 +540,71 @@
   <!-- PROCESS -->
   <div class="section" id="process">
     <div class="container">
-      <div class="section-head">
+      <div class="head">
         <div>
-          <h2>איך זה עובד</h2>
-          <p>4 שלבים פשוטים שמייצרים שקט נפשי.</p>
+          <h2>התהליך</h2>
+          <p>פשוט, נקי, מקצועי.</p>
         </div>
       </div>
 
-      <div class="timeline">
+      <div class="steps">
         <div class="step">
-          <div class="dot">1</div>
+          <div class="num">1</div>
           <div>
-            <h4>שיחת היכרות קצרה</h4>
-            <p>מגדירים מטרה, מצב קיים, ומה בדיוק צריך.</p>
+            <h4 style="margin:0 0 4px;">שיחת היכרות קצרה</h4>
+            <p>מגדירים מטרה, מה ידוע כרגע, ואיזה שירות מתאים.</p>
           </div>
         </div>
+
         <div class="step">
-          <div class="dot">2</div>
+          <div class="num">2</div>
           <div>
-            <h4>מיפוי ותכנון</h4>
-            <p>רשימת מסמכים/שלבים + תכנון תהליך מסודר.</p>
+            <h4 style="margin:0 0 4px;">מיפוי ותכנון</h4>
+            <p>רשימת מסמכים + מפת שלבים מסודרת להמשך.</p>
           </div>
         </div>
+
         <div class="step">
-          <div class="dot">3</div>
+          <div class="num">3</div>
           <div>
-            <h4>ביצוע ומעקב</h4>
-            <p>טיפול לפי השלבים, עדכונים ושקיפות.</p>
+            <h4 style="margin:0 0 4px;">ביצוע ומעקב</h4>
+            <p>ביצוע לפי השלבים, תיעוד, ועדכונים שוטפים.</p>
           </div>
         </div>
+
         <div class="step">
-          <div class="dot">4</div>
+          <div class="num">4</div>
           <div>
-            <h4>סיכום והמשך ניהול</h4>
-            <p>מסירה מסודרת + אופציה לניהול שוטף לאורך זמן.</p>
+            <h4 style="margin:0 0 4px;">סיכום + אופציה לניהול שוטף</h4>
+            <p>מסירה מסודרת של התיק, והמשך שירות לפי צורך.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="section" id="proof">
+    <div class="container">
+      <div class="head">
+        <div>
+          <h2>לקוחות מספרים</h2>
+          <p>החלף לטקסטים אמיתיים שלך — זה מעלה אמון מאוד.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="quote">“סוף סוף מישהו שעושה סדר. הכל היה ברור, מתועד ומקצועי.”</div>
+          <div class="who">— לקוח/ה (דוגמה)</div>
+        </div>
+        <div class="card">
+          <div class="quote">“שירות דיסקרטי ברמה גבוהה. הרגשתי שיש על מי לסמוך.”</div>
+          <div class="who">— לקוח/ה (דוגמה)</div>
+        </div>
+        <div class="card">
+          <div class="quote">“תקשורת מעולה ועדכונים מסודרים. בדיוק מה שחיפשתי.”</div>
+          <div class="who">— לקוח/ה (דוגמה)</div>
         </div>
       </div>
     </div>
@@ -512,24 +613,26 @@
   <!-- FAQ -->
   <div class="section" id="faq">
     <div class="container">
-      <div class="section-head">
+      <div class="head">
         <div>
           <h2>שאלות נפוצות</h2>
-          <p>כדי שתדע מראש למה לצפות.</p>
+          <p>תשובות קצרות וברורות.</p>
         </div>
       </div>
 
       <details>
         <summary>כמה זמן לוקח תהליך? <span class="chev">⌄</span></summary>
-        <div class="ans">זה תלוי במקרה. אחרי בדיקה ראשונית נוכל לתת הערכת זמן מסודרת לפי שלבים.</div>
+        <div class="ans">תלוי במקרה. אחרי בדיקה ראשונית נוכל לתת הערכת זמן לפי שלבים.</div>
       </details>
+
       <details>
-        <summary>מה צריך להכין לפני שמתחילים? <span class="chev">⌄</span></summary>
-        <div class="ans">שם מלא, פרטי התקשרות, וכל מסמך/מידע שיש (גם אם חלקי). אנחנו נעשה סדר.</div>
+        <summary>מה צריך להכין? <span class="chev">⌄</span></summary>
+        <div class="ans">שם מלא, פרטי קשר, וכל מידע/מסמך שיש (גם חלקי). אנחנו עושים סדר.</div>
       </details>
+
       <details>
         <summary>האם זה דיסקרטי? <span class="chev">⌄</span></summary>
-        <div class="ans">כן. אנחנו עובדים בצורה דיסקרטית ושומרים על פרטיות.</div>
+        <div class="ans">כן. העבודה נעשית בדיסקרטיות ושמירה על פרטיות ככל האפשר.</div>
       </details>
     </div>
   </div>
@@ -538,53 +641,55 @@
   <div class="section" id="contact">
     <div class="container">
       <div class="panel">
-        <div class="section-head" style="margin:0 0 10px;">
+        <div class="head" style="margin:0 0 12px;">
           <div>
-            <h2 style="margin:0;">יצירת קשר</h2>
-            <p>השאירו פרטים ונחזור אליכם, או פנו ישירות.</p>
+            <h2>יצירת קשר</h2>
+            <p>השאירו פרטים או פנו ישירות.</p>
           </div>
         </div>
 
-        <div class="contact-grid">
-          <div class="card" style="box-shadow:none;">
-            <div class="pill">פנייה מהירה</div>
-            <p style="margin:0 0 10px; color:var(--muted); line-height:1.9;">
-              לחץ על כפתור וואטסאפ / התקשר, או מלא טופס.
+        <div class="contact">
+          <div class="card">
+            <span class="tag">פנייה מהירה</span>
+            <p style="margin:0 0 12px; color:var(--muted); line-height:1.9;">
+              החלף כאן את המספר/המייל שלך ואז זה מוכן לפרסום.
             </p>
 
-            <!-- החלף מספר/קישורים -->
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <!-- החלף מספר וואטסאפ -->
               <a class="btn primary" target="_blank" rel="noopener"
                  href="https://wa.me/972500000000?text=%D7%94%D7%99%D7%99%20AMIRI%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99%D7%AA.%20%D7%A9%D7%9E%D7%99%3A%20____%20%D7%95%D7%94%D7%A0%D7%95%D7%A9%D7%90%3A%20____">
                 וואטסאפ
               </a>
+
+              <!-- החלף טלפון -->
               <a class="btn" href="tel:+972500000000">שיחה</a>
+
+              <!-- החלף מייל -->
               <a class="btn ghost" href="mailto:amiri@example.com">אימייל</a>
             </div>
           </div>
 
-          <div class="card" style="box-shadow:none;">
-            <div class="pill">טופס</div>
+          <div class="card">
+            <span class="tag">טופס</span>
             <form id="leadForm">
               <input id="name" type="text" placeholder="שם מלא" required />
               <input id="phone" type="tel" placeholder="טלפון" required />
               <textarea id="msg" placeholder="בכמה מילים: מה אתם צריכים?" required></textarea>
               <button class="btn primary" type="submit">שליחה</button>
-              <div style="color: rgba(245,247,255,.65); font-size:12.5px; line-height:1.7;">
-                *הטופס שולח מייל דרך המחשב/טלפון (mailto). אם תרצה טופס “אמיתי” ששומר לידים – תגיד לי ואוסיף.
+              <div style="color: rgba(245,241,232,.62); font-size:12.5px; line-height:1.7;">
+                *הטופס שולח מייל (mailto). אם תרצה טופס ששומר לידים — אגיד לך איך לחבר.
               </div>
             </form>
           </div>
         </div>
 
-        <div style="margin-top:12px; color: rgba(245,247,255,.60); font-size:12.5px; line-height:1.8;">
-          ⚠️ הערה: האתר הוא מידע כללי בלבד ואינו ייעוץ משפטי/פיננסי. במקרים רלוונטיים מומלץ להתייעץ עם אנשי מקצוע.
+        <div style="margin-top:14px; color: rgba(245,241,232,.60); font-size:12.5px; line-height:1.8;">
+          ⚠️ האתר מציג מידע כללי בלבד ואינו ייעוץ משפטי/פיננסי.
         </div>
       </div>
 
-      <footer>
-        © <span id="y"></span> AMIRI — All rights reserved.
-      </footer>
+      <footer>© <span id="y"></span> AMIRI — All rights reserved.</footer>
     </div>
   </div>
 
