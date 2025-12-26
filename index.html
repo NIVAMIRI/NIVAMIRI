@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AMIRI — השבת נכסים וניהול נכסים. שירות דיסקרטי, מסודר ומקצועי." />
-  <title>AMIRI | השבת נכסים וניהול נכסים</title>
+  <meta name="description" content="AMIRI — השבחת נכסים וניהול נכסים שוטף. מגדילים את שווי הנכס, משפרים תשואה ומוכרים ברווח." />
+  <title>AMIRI | השבחת נכסים וניהול נכסים</title>
 
   <style>
     :root{
+      /* Luxury palette: Black + Sand */
       --bg:#070707;
       --bg2:#0b0b0b;
       --sand:#d6b77a;
       --sand2:#b8924b;
-      --text:#f5f1e8;
-      --muted: rgba(245,241,232,.72);
+      --text:#f6f1e8;
+      --muted: rgba(246,241,232,.72);
       --line: rgba(214,183,122,.22);
       --panel: rgba(255,255,255,.04);
       --panel2: rgba(255,255,255,.06);
-      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --shadow: 0 26px 90px rgba(0,0,0,.55);
       --r: 18px;
       --max: 1120px;
     }
@@ -28,48 +29,37 @@
       margin:0;
       color: var(--text);
       background:
-        radial-gradient(900px 520px at 18% 12%, rgba(214,183,122,.10), transparent 58%),
-        radial-gradient(800px 520px at 82% 20%, rgba(214,183,122,.06), transparent 58%),
+        radial-gradient(1000px 560px at 18% 12%, rgba(214,183,122,.10), transparent 60%),
+        radial-gradient(900px 560px at 82% 20%, rgba(214,183,122,.06), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans Hebrew", "Heebo", sans-serif;
       overflow-x:hidden;
     }
-
     a{ color:inherit; text-decoration:none; }
     .container{ max-width: var(--max); margin:0 auto; padding: 0 16px; }
 
-    /* Subtle grain */
+    /* subtle grain */
     .grain{
-      position: fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.08;
-      mix-blend-mode: overlay;
+      position: fixed; inset:0; pointer-events:none;
+      opacity:.08; mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
     }
 
     /* NAV */
     .nav{
-      position: sticky;
-      top:0;
-      z-index:50;
+      position: sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
       background: rgba(7,7,7,.62);
       border-bottom: 1px solid rgba(214,183,122,.14);
     }
     .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
       padding: 12px 0;
     }
-
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
+      display:flex; align-items:center; gap:12px;
       letter-spacing:.7px;
+      min-width: 220px;
     }
     .mark{
       width:44px;height:44px;
@@ -77,16 +67,13 @@
       border:1px solid rgba(214,183,122,.35);
       background: linear-gradient(135deg, rgba(214,183,122,.18), rgba(255,255,255,.02));
       box-shadow: 0 16px 60px rgba(0,0,0,.45);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight: 950;
-      color: var(--sand);
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 950; color: var(--sand);
+      overflow:hidden;
     }
+    .mark img{ width:100%; height:100%; object-fit: cover; display:block; }
     .brand .name{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
+      display:flex; flex-direction:column; line-height:1.05;
     }
     .brand .name b{
       font-family: ui-serif, Georgia, "Times New Roman", serif;
@@ -94,21 +81,16 @@
       letter-spacing: 1.2px;
     }
     .brand .name span{
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: .2px;
+      font-size: 12px; color: var(--muted); letter-spacing: .2px;
     }
 
     .links{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
     }
     .link{
       font-weight: 800;
       font-size: 13px;
-      color: rgba(245,241,232,.88);
+      color: rgba(246,241,232,.88);
       padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid rgba(214,183,122,.10);
@@ -121,18 +103,9 @@
       background: rgba(255,255,255,.05);
     }
 
-    .cta{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-
     /* Buttons */
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding: 12px 14px;
       border-radius: 14px;
       border: 1px solid rgba(214,183,122,.22);
@@ -141,6 +114,7 @@
       font-weight: 900;
       cursor:pointer;
       transition: transform .12s ease, filter .12s ease, border-color .12s ease, background .12s ease;
+      white-space: nowrap;
     }
     .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); border-color: rgba(214,183,122,.35); background: rgba(255,255,255,.05); }
     .btn.primary{
@@ -154,15 +128,14 @@
     }
 
     /* HERO */
-    .hero{ padding: 34px 0 16px; }
+    .hero{ padding: 30px 0 12px; }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 14px;
       align-items: stretch;
-      margin-top: 16px;
+      margin-top: 14px;
     }
-
     .panel{
       border-radius: var(--r);
       border: 1px solid rgba(214,183,122,.18);
@@ -174,13 +147,47 @@
     }
     .panel:before{
       content:"";
-      position:absolute;
-      inset:-35% -45%;
+      position:absolute; inset:-35% -45%;
       background: radial-gradient(circle, rgba(214,183,122,.12), transparent 55%);
       transform: rotate(12deg);
       opacity:.65;
     }
     .panel > *{ position: relative; }
+
+    /* Big logo area */
+    .hero-logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 0 18px;
+    }
+    .hero-logo .logo-wrap{
+      width: min(520px, 92%);
+      border-radius: 22px;
+      border: 1px solid rgba(214,183,122,.22);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 22px 80px rgba(0,0,0,.50);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero-logo img{
+      width: 100%;
+      height: auto;
+      max-height: 170px;
+      object-fit: contain;
+      display:block;
+      filter: drop-shadow(0 10px 40px rgba(0,0,0,.35));
+    }
+    .hero-logo .fallback{
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-size: 54px;
+      letter-spacing: 6px;
+      color: rgba(214,183,122,.92);
+      display:none;
+      user-select:none;
+    }
 
     h1{
       margin:0 0 10px;
@@ -195,7 +202,6 @@
       line-height: 1.95;
       font-size: clamp(15px, 2.1vw, 17px);
     }
-
     .divider{
       height:1px;
       background: linear-gradient(90deg, transparent, rgba(214,183,122,.28), transparent);
@@ -217,47 +223,24 @@
     .kpi b{ display:block; font-size: 14px; letter-spacing:.3px; }
     .kpi span{ display:block; margin-top:6px; color: var(--muted); font-size: 12.8px; line-height:1.6; }
 
-    .mini{
-      display:grid;
-      gap:10px;
-    }
+    .mini{ display:grid; gap:10px; }
     .mini-card{
       border-radius: 16px;
       border: 1px solid rgba(214,183,122,.14);
       background: rgba(255,255,255,.03);
       padding: 14px;
     }
-    .mini-card h3{
-      margin:0 0 6px;
-      font-size: 15.5px;
-    }
-    .mini-card p{
-      margin:0;
-      color: var(--muted);
-      line-height:1.85;
-      font-size: 14px;
-    }
+    .mini-card h3{ margin:0 0 6px; font-size: 15.5px; }
+    .mini-card p{ margin:0; color: var(--muted); line-height:1.85; font-size: 14px; }
 
     /* Sections */
     .section{ padding: 18px 0; }
     .head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:10px;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
       margin: 6px 0 12px;
     }
-    .head h2{
-      margin:0;
-      font-size: 20.5px;
-      letter-spacing:.3px;
-    }
-    .head p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height:1.6;
-    }
+    .head h2{ margin:0; font-size: 20.5px; letter-spacing:.3px; }
+    .head p{ margin:0; color: var(--muted); font-size: 14px; line-height:1.6; }
 
     .grid{
       display:grid;
@@ -276,7 +259,7 @@
       border-radius: 999px;
       border: 1px solid rgba(214,183,122,.22);
       background: rgba(214,183,122,.08);
-      color: rgba(245,241,232,.92);
+      color: rgba(246,241,232,.92);
       font-weight: 950;
       font-size: 12px;
       margin-bottom: 10px;
@@ -287,9 +270,7 @@
     /* Steps */
     .steps{ display:grid; gap: 10px; }
     .step{
-      display:flex;
-      gap: 12px;
-      align-items:flex-start;
+      display:flex; gap: 12px; align-items:flex-start;
       border-radius: var(--r);
       border: 1px solid rgba(214,183,122,.16);
       background: rgba(255,255,255,.03);
@@ -306,19 +287,6 @@
     }
     .step h4{ margin:0 0 4px; }
     .step p{ margin:0; color: var(--muted); line-height:1.85; font-size: 14.5px; }
-
-    /* Testimonials */
-    .quote{
-      font-size: 14.5px;
-      line-height: 1.9;
-      color: rgba(245,241,232,.92);
-    }
-    .who{
-      margin-top: 10px;
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 13px;
-    }
 
     /* FAQ */
     details{
@@ -338,12 +306,7 @@
       gap:10px;
     }
     summary::-webkit-details-marker{ display:none; }
-    .ans{
-      margin-top: 10px;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 14.5px;
-    }
+    .ans{ margin-top: 10px; color: var(--muted); line-height: 1.9; font-size: 14.5px; }
     .chev{
       width: 34px; height: 34px;
       border-radius: 14px;
@@ -351,7 +314,7 @@
       border: 1px solid rgba(214,183,122,.16);
       background: rgba(255,255,255,.03);
       transition: transform .15s ease;
-      color: rgba(245,241,232,.85);
+      color: rgba(246,241,232,.85);
     }
     details[open] .chev{ transform: rotate(180deg); }
 
@@ -372,15 +335,47 @@
       font-family: inherit;
     }
     textarea{ min-height: 130px; resize: vertical; }
-    input::placeholder, textarea::placeholder{ color: rgba(245,241,232,.55); }
+    input::placeholder, textarea::placeholder{ color: rgba(246,241,232,.55); }
 
     footer{
       padding: 26px 0 40px;
-      color: rgba(245,241,232,.60);
+      color: rgba(246,241,232,.60);
       text-align:center;
       font-size: 13px;
       line-height: 1.8;
     }
+
+    /* Floating actions */
+    .float{
+      position: fixed;
+      left: 14px;
+      bottom: 14px;
+      z-index: 60;
+      display:flex;
+      gap:10px;
+      flex-direction: column;
+    }
+    .fab{
+      width: 54px; height: 54px;
+      border-radius: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 950;
+      text-decoration:none;
+      border: 1px solid rgba(214,183,122,.22);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      backdrop-filter: blur(14px);
+      transition: transform .12s ease, filter .12s ease;
+      background: rgba(255,255,255,.03);
+      color: rgba(246,241,232,.95);
+    }
+    .fab:hover{ transform: translateY(-2px); filter: brightness(1.05); }
+    .fab.wa{
+      background: linear-gradient(135deg, rgba(214,183,122,.92), rgba(184,146,75,.92));
+      color:#090909;
+    }
+    .fab.call{ border-color: rgba(214,183,122,.28); }
 
     /* Mobile */
     @media (max-width: 940px){
@@ -394,7 +389,7 @@
       .panel{ padding: 16px; }
       .grid{ grid-template-columns: 1fr; }
       .btn{ width: 100%; }
-      .cta{ display:none; }
+      .hero-logo img{ max-height: 140px; }
     }
   </style>
 </head>
@@ -407,22 +402,25 @@
     <div class="container">
       <div class="nav-inner">
         <div class="brand" aria-label="AMIRI">
-          <div class="mark" aria-hidden="true">A</div>
+          <!-- קטן בנאב: אפשר לשים גם כאן לוגו -->
+          <div class="mark" aria-hidden="true">
+            <img src="assets/amiri-logo.png" alt="AMIRI" onerror="this.style.display='none'; this.parentElement.textContent='A';" />
+          </div>
           <div class="name">
             <b>AMIRI</b>
-            <span>השבת נכסים • ניהול נכסים • שירות דיסקרטי</span>
+            <span>השבחת נכסים • ניהול נכסים • סטנדרט פרימיום</span>
           </div>
         </div>
 
         <div class="links" aria-label="ניווט">
           <a class="link" href="#services">שירותים</a>
-          <a class="link" href="#why">למה AMIRI</a>
+          <a class="link" href="#value">השבחה</a>
           <a class="link" href="#process">תהליך</a>
           <a class="link" href="#faq">שאלות</a>
           <a class="link" href="#contact">יצירת קשר</a>
         </div>
 
-        <div class="cta">
+        <div style="display:flex; gap:10px;">
           <a class="btn ghost" href="#services">לראות שירותים</a>
           <a class="btn primary" href="#contact">בדיקה ראשונית</a>
         </div>
@@ -430,28 +428,39 @@
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero">
+  <!-- HERO + BIG LOGO -->
+  <div class="hero" id="top">
     <div class="container">
+
+      <div class="hero-logo">
+        <div class="logo-wrap">
+          <!-- ✅ כאן הלוגו הגדול בתחילת העמוד -->
+          <img src="assets/amiri-logo.png" alt="AMIRI Logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <div class="fallback">AMIRI</div>
+        </div>
+      </div>
+
       <div class="hero-grid">
         <div class="panel">
-          <h1>שירות יוקרתי, שקט ומסודר — לנכסים שלך.</h1>
+          <h1>מגדילים את שווי הנכס — כדי שתמכור ברווח.</h1>
           <p class="lead">
-            ב־AMIRI אנחנו מטפלים בתהליכי <b>השבת נכסים</b> ובשירותי <b>ניהול נכסים</b> בגישה שמבוססת על
-            סדר, שקיפות, דיסקרטיות וסטנדרט גבוה.
+            AMIRI מתמחה בלקיחת נכס שדורש <b>השבחה</b> והפיכתו לנכס בעל <b>שווי גבוה יותר</b>:
+            תכנון נכון, ביצוע מדויק וניהול תהליך מסודר — במטרה למקסם רווח במכירה או לשפר תשואה.
+            בנוסף, אנחנו מציעים <b>שירות ניהול נכסים שוטף</b> לבעלי נכסים שרוצים ראש שקט.
           </p>
 
           <div class="divider"></div>
 
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="#contact">אני רוצה בדיקה ראשונית</a>
+            <a class="btn primary" href="#contact">לבדיקת התאמה (חינם)</a>
             <a class="btn" href="#process">איך זה עובד</a>
           </div>
 
           <div class="kpis" aria-label="ערכים מרכזיים">
-            <div class="kpi"><b>דיסקרטיות</b><span>טיפול רגיש ומכבד, מינימום חשיפה, מקסימום אחריות.</span></div>
-            <div class="kpi"><b>סדר ותיעוד</b><span>תהליך מסודר + ריכוז מסמכים ותמונה ברורה.</span></div>
-            <div class="kpi"><b>שקיפות</b><span>אתם יודעים בכל שלב מה נעשה ומה הצעד הבא.</span></div>
+            <div class="kpi"><b>השבחה חכמה</b><span>מיקוד במה שמעלה ערך בפועל — לא “שיפוץ בלי תכלית”.</span></div>
+            <div class="kpi"><b>בקרה ותהליך</b><span>שלבים ברורים, תיעוד, ולוחות זמנים.</span></div>
+            <div class="kpi"><b>שירות פרימיום</b><span>תקשורת נקייה, שקיפות, ומינימום כאב ראש.</span></div>
           </div>
         </div>
 
@@ -459,19 +468,20 @@
           <div class="mini">
             <div class="mini-card">
               <h3>למי זה מתאים?</h3>
-              <p>למי שרוצה סדר בנכסים, מעקב מקצועי, ותהליך שמביא שקט נפשי.</p>
+              <p>לבעלי נכסים שרוצים להעלות שווי לפני מכירה, לשפר תשואה, או לנהל נכס בלי התעסקות.</p>
             </div>
             <div class="mini-card">
-              <h3>מה מקבלים?</h3>
-              <p>מיפוי מצב, תכנון שלבים, ביצוע ומעקב — הכל מתועד וברור.</p>
+              <h3>מה התוצאה שאתה מחפש?</h3>
+              <p>נכס שנראה ומרגיש “גבוה יותר” — שווי גבוה יותר, קהל קונים רחב יותר, ומכירה חכמה.</p>
             </div>
             <div class="mini-card">
-              <h3>מה הסטנדרט?</h3>
-              <p>תקשורת נקייה, מסגרת עבודה ברורה, ושירות “פרימיום”.</p>
+              <h3>איך מתחילים?</h3>
+              <p>בדיקה קצרה → מיפוי פוטנציאל → תוכנית עבודה מסודרת.</p>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -481,57 +491,27 @@
       <div class="head">
         <div>
           <h2>השירותים שלנו</h2>
-          <p>לפי הצורך — בדיקה, השבה, או ניהול שוטף.</p>
+          <p>שני מסלולים מרכזיים — אפשר לשלב בהתאם לצורך.</p>
         </div>
       </div>
 
       <div class="grid">
-        <div class="card">
-          <span class="tag">השבת נכסים</span>
-          <h3>בדיקה ראשונית + מיפוי</h3>
-          <p>איסוף נתונים, הבנת מצב קיים, ותכנון שלבים מסודר להמשך טיפול.</p>
+        <div class="card" id="value">
+          <span class="tag">השבחת נכסים</span>
+          <h3>איתור פוטנציאל + תוכנית השבחה</h3>
+          <p>מיפוי מצב הנכס, זיהוי נקודות שמעלות ערך, ובניית תוכנית עבודה ממוקדת: מה עושים, למה, ומה סדר הפעולות.</p>
         </div>
 
         <div class="card">
-          <span class="tag">השבת נכסים</span>
-          <h3>סידור מסמכים והכנת תיק</h3>
-          <p>ארגון מסמכים, יצירת סדר, והכנה לפעולות המשך לפי הצורך.</p>
+          <span class="tag">השבחת נכסים</span>
+          <h3>ניהול וביצוע תהליך</h3>
+          <p>ניהול תהליך מסודר, בקרה ושקיפות לאורך הדרך — כדי להגיע לתוצאה שמעלה שווי ומאפשרת מכירה ברווח.</p>
         </div>
 
         <div class="card">
-          <span class="tag">ניהול נכסים</span>
-          <h3>ניהול ומעקב שוטף</h3>
-          <p>מעקב סטטוסים, תיעוד, ביצוע משימות שוטפות ועדכונים מסודרים.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHY -->
-  <div class="section" id="why">
-    <div class="container">
-      <div class="head">
-        <div>
-          <h2>למה AMIRI</h2>
-          <p>יוקרה אמיתית = שקט, סדר וסטנדרט שירות.</p>
-        </div>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <span class="tag">תהליך</span>
-          <h3>שלב-אחר-שלב</h3>
-          <p>בלי בלגן: אתם מקבלים מסגרת עבודה ברורה, מהתחלה ועד סיכום.</p>
-        </div>
-        <div class="card">
-          <span class="tag">תקשורת</span>
-          <h3>עדכונים ברורים</h3>
-          <p>שקיפות לאורך הדרך: מה בוצע, מה חסר, ומה השלב הבא.</p>
-        </div>
-        <div class="card">
-          <span class="tag">דיסקרטיות</span>
-          <h3>פרטיות לפני הכול</h3>
-          <p>טיפול רגיש ומכבד, תוך שמירה על פרטיות וביטחון מידע.</p>
+          <span class="tag">ניהול נכסים שוטף</span>
+          <h3>ראש שקט לבעל הנכס</h3>
+          <p>טיפול שוטף, מעקב, תיאומים ועדכונים מסודרים — כדי שהנכס יעבוד בשבילך בלי התעסקות יומיומית.</p>
         </div>
       </div>
     </div>
@@ -542,8 +522,8 @@
     <div class="container">
       <div class="head">
         <div>
-          <h2>התהליך</h2>
-          <p>פשוט, נקי, מקצועי.</p>
+          <h2>התהליך שלנו</h2>
+          <p>פשוט, נקי, עם שלבים ברורים.</p>
         </div>
       </div>
 
@@ -551,60 +531,33 @@
         <div class="step">
           <div class="num">1</div>
           <div>
-            <h4 style="margin:0 0 4px;">שיחת היכרות קצרה</h4>
-            <p>מגדירים מטרה, מה ידוע כרגע, ואיזה שירות מתאים.</p>
+            <h4>בדיקה ראשונית (קצרה)</h4>
+            <p>מטרתך: מכירה ברווח / שיפור תשואה / ניהול שוטף. מקבלים תמונה מהירה של המצב.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="num">2</div>
           <div>
-            <h4 style="margin:0 0 4px;">מיפוי ותכנון</h4>
-            <p>רשימת מסמכים + מפת שלבים מסודרת להמשך.</p>
+            <h4>מיפוי פוטנציאל ותוכנית</h4>
+            <p>מחליטים מה באמת מעלה ערך: סדר עדיפויות, תקציב, ולוחות זמנים.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="num">3</div>
           <div>
-            <h4 style="margin:0 0 4px;">ביצוע ומעקב</h4>
-            <p>ביצוע לפי השלבים, תיעוד, ועדכונים שוטפים.</p>
+            <h4>ביצוע וניהול</h4>
+            <p>ניהול התהליך בצורה מסודרת, תיעוד, עדכונים ובקרה.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="num">4</div>
           <div>
-            <h4 style="margin:0 0 4px;">סיכום + אופציה לניהול שוטף</h4>
-            <p>מסירה מסודרת של התיק, והמשך שירות לפי צורך.</p>
+            <h4>סיום ותוצאה</h4>
+            <p>נכס במצב “מוכן לשוק” — שווי גבוה יותר, או מעבר לניהול שוטף לפי צורך.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TESTIMONIALS -->
-  <div class="section" id="proof">
-    <div class="container">
-      <div class="head">
-        <div>
-          <h2>לקוחות מספרים</h2>
-          <p>החלף לטקסטים אמיתיים שלך — זה מעלה אמון מאוד.</p>
-        </div>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <div class="quote">“סוף סוף מישהו שעושה סדר. הכל היה ברור, מתועד ומקצועי.”</div>
-          <div class="who">— לקוח/ה (דוגמה)</div>
-        </div>
-        <div class="card">
-          <div class="quote">“שירות דיסקרטי ברמה גבוהה. הרגשתי שיש על מי לסמוך.”</div>
-          <div class="who">— לקוח/ה (דוגמה)</div>
-        </div>
-        <div class="card">
-          <div class="quote">“תקשורת מעולה ועדכונים מסודרים. בדיוק מה שחיפשתי.”</div>
-          <div class="who">— לקוח/ה (דוגמה)</div>
         </div>
       </div>
     </div>
@@ -616,23 +569,23 @@
       <div class="head">
         <div>
           <h2>שאלות נפוצות</h2>
-          <p>תשובות קצרות וברורות.</p>
+          <p>כדי שתדע בדיוק למה לצפות.</p>
         </div>
       </div>
 
       <details>
-        <summary>כמה זמן לוקח תהליך? <span class="chev">⌄</span></summary>
-        <div class="ans">תלוי במקרה. אחרי בדיקה ראשונית נוכל לתת הערכת זמן לפי שלבים.</div>
+        <summary>איך יודעים אם לנכס יש פוטנציאל השבחה? <span class="chev">⌄</span></summary>
+        <div class="ans">בבדיקה ראשונית אנחנו מסתכלים על מצב הנכס, התאמה לשוק, ומה ייתן את “הקפיצה” הכי טובה בשווי ביחס להשקעה.</div>
       </details>
 
       <details>
-        <summary>מה צריך להכין? <span class="chev">⌄</span></summary>
-        <div class="ans">שם מלא, פרטי קשר, וכל מידע/מסמך שיש (גם חלקי). אנחנו עושים סדר.</div>
+        <summary>תוך כמה זמן רואים תוצאה? <span class="chev">⌄</span></summary>
+        <div class="ans">זה תלוי בהיקף התהליך. אחרי מיפוי ותוכנית עבודה נוכל לתת טווחי זמן מסודרים לפי שלבים.</div>
       </details>
 
       <details>
-        <summary>האם זה דיסקרטי? <span class="chev">⌄</span></summary>
-        <div class="ans">כן. העבודה נעשית בדיסקרטיות ושמירה על פרטיות ככל האפשר.</div>
+        <summary>מה כולל ניהול נכסים שוטף? <span class="chev">⌄</span></summary>
+        <div class="ans">טיפול שוטף ותיאומים, מעקב ובקרה, ועדכונים מסודרים לבעל הנכס — בהתאם למה שתגדיר איתנו מראש.</div>
       </details>
     </div>
   </div>
@@ -644,7 +597,7 @@
         <div class="head" style="margin:0 0 12px;">
           <div>
             <h2>יצירת קשר</h2>
-            <p>השאירו פרטים או פנו ישירות.</p>
+            <p>שלח הודעה קצרה ונחזור אליך עם בדיקה ראשונית.</p>
           </div>
         </div>
 
@@ -652,20 +605,18 @@
           <div class="card">
             <span class="tag">פנייה מהירה</span>
             <p style="margin:0 0 12px; color:var(--muted); line-height:1.9;">
-              החלף כאן את המספר/המייל שלך ואז זה מוכן לפרסום.
+              כתוב לנו: שם + עיר + האם זה להשבחה/ניהול + מה המטרה (מכירה ברווח / תשואה / שקט).
             </p>
 
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <!-- החלף מספר וואטסאפ -->
               <a class="btn primary" target="_blank" rel="noopener"
-                 href="https://wa.me/972500000000?text=%D7%94%D7%99%D7%99%20AMIRI%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99%D7%AA.%20%D7%A9%D7%9E%D7%99%3A%20____%20%D7%95%D7%94%D7%A0%D7%95%D7%A9%D7%90%3A%20____">
+                 href="https://wa.me/972535758434?text=%D7%94%D7%99%D7%99%20AMIRI%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99%D7%AA.%20%D7%A9%D7%9D%3A%20____%20%D7%A2%D7%99%D7%A8%3A%20____%20%D7%A9%D7%99%D7%A8%D7%95%D7%AA%3A%20%D7%94%D7%A9%D7%91%D7%97%D7%94%2F%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%95%D7%9E%D7%98%D7%A8%D7%94%3A%20____">
                 וואטסאפ
               </a>
 
-              <!-- החלף טלפון -->
-              <a class="btn" href="tel:+972500000000">שיחה</a>
+              <a class="btn" href="tel:+972535758434">שיחה</a>
 
-              <!-- החלף מייל -->
+              <!-- אם תרצה מייל אמיתי: החלף כאן -->
               <a class="btn ghost" href="mailto:amiri@example.com">אימייל</a>
             </div>
           </div>
@@ -675,36 +626,48 @@
             <form id="leadForm">
               <input id="name" type="text" placeholder="שם מלא" required />
               <input id="phone" type="tel" placeholder="טלפון" required />
-              <textarea id="msg" placeholder="בכמה מילים: מה אתם צריכים?" required></textarea>
+              <textarea id="msg" placeholder="בכמה מילים: מה הנכס ומה המטרה?" required></textarea>
               <button class="btn primary" type="submit">שליחה</button>
-              <div style="color: rgba(245,241,232,.62); font-size:12.5px; line-height:1.7;">
-                *הטופס שולח מייל (mailto). אם תרצה טופס ששומר לידים — אגיד לך איך לחבר.
+              <div style="color: rgba(246,241,232,.62); font-size:12.5px; line-height:1.7;">
+                *הטופס שולח הודעה לוואטסאפ (נוח יותר במובייל).
               </div>
             </form>
           </div>
         </div>
 
-        <div style="margin-top:14px; color: rgba(245,241,232,.60); font-size:12.5px; line-height:1.8;">
-          ⚠️ האתר מציג מידע כללי בלבד ואינו ייעוץ משפטי/פיננסי.
+        <div style="margin-top:14px; color: rgba(246,241,232,.60); font-size:12.5px; line-height:1.8;">
+          © <span id="y"></span> AMIRI — All rights reserved.
         </div>
       </div>
 
-      <footer>© <span id="y"></span> AMIRI — All rights reserved.</footer>
+      <footer>
+        <span style="opacity:.85;">עיצוב נקי ויוקרתי | השבחת נכסים וניהול נכסים</span>
+      </footer>
     </div>
+  </div>
+
+  <!-- Floating quick actions -->
+  <div class="float" aria-label="כפתורי קשר מהירים">
+    <a class="fab wa" target="_blank" rel="noopener"
+       href="https://wa.me/972535758434?text=%D7%94%D7%99%D7%99%20AMIRI%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%AA%D7%97%D7%99%D7%9C%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99%D7%AA.%20%D7%A9%D7%9D%3A%20____">
+      WA
+    </a>
+    <a class="fab call" href="tel:+972535758434">📞</a>
   </div>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Mailto form
+    // Send form to WhatsApp (no backend needed)
     document.getElementById("leadForm").addEventListener("submit", function(e){
       e.preventDefault();
       const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
       const msg = document.getElementById("msg").value.trim();
-      const subject = encodeURIComponent("פנייה חדשה מהאתר AMIRI");
-      const body = encodeURIComponent(`שם: ${name}\nטלפון: ${phone}\n\nהודעה:\n${msg}`);
-      window.location.href = `mailto:amiri@example.com?subject=${subject}&body=${body}`;
+      const text = encodeURIComponent(
+        `היי AMIRI, אני רוצה בדיקה ראשונית.\nשם: ${name}\nטלפון: ${phone}\nפרטים: ${msg}`
+      );
+      window.open(`https://wa.me/972535758434?text=${text}`, "_blank");
     });
   </script>
 </body>
